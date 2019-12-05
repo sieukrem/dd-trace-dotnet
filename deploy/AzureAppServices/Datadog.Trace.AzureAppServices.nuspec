@@ -8,10 +8,9 @@
     <license type="expression">Apache-2.0</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Installer for Datadog's .NET Tracer for APM.
+      .NET Tracer for Datadog APM.
       Required configuration parameters: DD_API_KEY.
     </description>
-    <summary>Datadog APM - .NET Tracer</summary>
     <tags>AzureSiteExtension Datadog .NET APM Tracing</tags>
     <packageTypes>
       <packageType name="AzureSiteExtension" />
