@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Datadog.Trace.AzureAppServices</id>
+    <version>1.10.0</version>
+    <title>Datadog APM - .NET Tracer</title>
+    <authors>lucas.pimentel.datadog;colinhigginsdatadog;zachmontoyadd;bobuva</authors>
+    <license type="expression">Apache-2.0</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Installer for Datadog's .NET Tracer for APM.
+      Required configuration parameters: DD_API_KEY.
+    </description>
+    <summary>Datadog APM - .NET Tracer</summary>
+    <tags>AzureSiteExtension Datadog .NET APM Tracing</tags>
+    <packageTypes>
+      <packageType name="AzureSiteExtension" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="content\**\*.*" target="content" />
+  </files>
+</package>
