@@ -1,5 +1,5 @@
+using System;
 using System.Linq;
-using Castle.Core.Internal;
 
 namespace PrepareRelease
 {
@@ -35,7 +35,7 @@ namespace PrepareRelease
 
         private static bool JobShouldRun(string jobName, string[] args)
         {
-            return args.IsNullOrEmpty() || args.Any(a => a.ToLower().Equals(jobName));
+            return args.Any(a => string.Equals(a, jobName, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
