@@ -12,14 +12,14 @@ namespace PrepareRelease
 
         public static void Main(string[] args)
         {
-            if (JobShouldRun(Versions, args))
-            {
-                SetAllVersions.Run();
-            }
-
             if (JobShouldRun(Integrations, args))
             {
                 GenerateIntegrationDefinitions.Run();
+            }
+
+            if (JobShouldRun(Versions, args))
+            {
+                SetAllVersions.Run();
             }
 
             if (JobShouldRun(Msi, args))

@@ -15,6 +15,7 @@ namespace PrepareRelease
             CopyTargetFrameworkPrivateBin("netstandard2.0");
             CopyNativeProfiler("x86");
             CopyNativeProfiler("x64");
+            CopyIntegrationsJson();
         }
 
         private static void CopyTargetFrameworkPrivateBin(string frameworkMoniker)
@@ -57,6 +58,19 @@ namespace PrepareRelease
                 var destinationPath = Path.Combine(outputDirectory, fileName);
                 File.Copy(sourceFile, destinationPath);
             }
+        }
+
+        private static void CopyIntegrationsJson()
+        {
+            var sourceFile = Path.Combine(EnvironmentTools.GetSolutionDirectory(), "integrations.json");
+            var destinationPath = Path.Combine(TracerHomeDirectory, "integrations.json");
+
+            if (File.Exists(destinationPath))
+            {
+                File.Delete(destinationPath);
+            }
+
+            File.Copy(sourceFile, destinationPath);
         }
     }
 }
