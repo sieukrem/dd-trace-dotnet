@@ -35,7 +35,7 @@ namespace PrepareRelease
 
         private static bool JobShouldRun(string jobName, string[] args)
         {
-            return args.Any(a => string.Equals(a, jobName, StringComparison.OrdinalIgnoreCase));
+            return args.Length == 0 || args.Any(a => string.Equals(a, jobName, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

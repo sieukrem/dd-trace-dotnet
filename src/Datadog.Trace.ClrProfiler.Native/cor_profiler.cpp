@@ -35,6 +35,14 @@ CorProfiler::Initialize(IUnknown* cor_profiler_info_unknown) {
     debug_logging_enabled = true;
   }
 
+  const auto azure_app_services_value =
+      GetEnvironmentValue(environment::azure_app_services);
+  
+  if (azure_app_services_value == "1"_W) {
+    Info("Profiler operating within Azure App Services.");
+    in_azure_app_services = true;
+  }
+
   CorProfilerBase::Initialize(cor_profiler_info_unknown);
 
   // check if tracing is completely disabled
@@ -248,6 +256,15 @@ HRESULT STDMETHODCALLTYPE CorProfiler::ModuleLoadFinished(ModuleID module_id,
   const auto module_info = GetModuleInfo(this->info_, module_id);
   if (!module_info.IsValid()) {
     return S_OK;
+  }
+
+  if (in_azure_app_services) {
+    Info("Azure ModuleLoadFinished: ", module_id, " ",
+         module_info.assembly.name, " AppDomain ",
+         module_info.assembly.app_domain_id, " ",
+         module_info.assembly.app_domain_name, " ",
+         module_info.assembly.manifest_module_id, " ", module_info.assembly.id,
+         " ", module_info.path, " ", module_info.assembly.id);
   }
 
   if (debug_logging_enabled) {
