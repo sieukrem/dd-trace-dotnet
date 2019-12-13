@@ -22,18 +22,18 @@
 
         <add name="COR_ENABLE_PROFILING" value="1" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
         <add name="COR_PROFILER" value="{846F5F1C-F9AE-4B07-969E-05C26BC060D8}" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="COR_PROFILER_PATH" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="COR_PROFILER_PATH_32" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="COR_PROFILER_PATH_64" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x64\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="COR_PROFILER_PATH" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="COR_PROFILER_PATH_32" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="COR_PROFILER_PATH_64" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x64\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
 
         <add name="CORECLR_ENABLE_PROFILING" value="1" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
         <add name="CORECLR_PROFILER" value="{846F5F1C-F9AE-4B07-969E-05C26BC060D8}" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="CORECLR_PROFILER_PATH" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="CORECLR_PROFILER_PATH_32" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="CORECLR_PROFILER_PATH_64" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\x64\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="CORECLR_PROFILER_PATH" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="CORECLR_PROFILER_PATH_32" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x86\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="CORECLR_PROFILER_PATH_64" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\x64\Datadog.Trace.ClrProfiler.Native.dll" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
 
-        <add name="DD_DOTNET_TRACER_HOME" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
-        <add name="DD_INTEGRATIONS" value="D:\home\SiteExtensions\Datadog.Trace.AzureAppServices\Tracer\integrations.json" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="DD_DOTNET_TRACER_HOME" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
+        <add name="DD_INTEGRATIONS" value=" D:\home\site\siteextensions\Datadog.Trace.AzureAppServices\v1_10_12\Tracer\integrations.json" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
         <add name="DD_TRACE_LOG_PATH" value="D:\home\site\diagnostics\dotnet-profiler.log" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
         <add name="DD_AZURE_APP_SERVICES" value="1" xdt:Locator="Match(name)" xdt:Transform="Insert"/>
       </environmentVariables>

@@ -14,17 +14,17 @@ namespace PrepareRelease
         {
             if (JobShouldRun(Integrations, args))
             {
-                GenerateIntegrationDefinitions.Run();
+                // GenerateIntegrationDefinitions.Run();
             }
 
             if (JobShouldRun(Versions, args))
             {
-                SetAllVersions.Run();
+                // SetAllVersions.Run();
             }
 
             if (JobShouldRun(Msi, args))
             {
-                SyncMsiContent.Run();
+                // SyncMsiContent.Run();
             }
 
             if (JobShouldRun(AzureAppServices, args))
