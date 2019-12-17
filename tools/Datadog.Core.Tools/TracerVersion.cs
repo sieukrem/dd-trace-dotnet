@@ -20,7 +20,7 @@ namespace Datadog.Core.Tools
         /// </summary>
         public const int Patch = 18;
 
-        /// <summary>sw
+        /// <summary>
         /// Whether the current release is a pre-release
         /// </summary>
         public const bool IsPreRelease = true;
