@@ -119,7 +119,7 @@ CorProfiler::Initialize(IUnknown* cor_profiler_info_unknown) {
     }
 
     const auto cli_telemetry_profile_value =
-        GetEnvironmentValue("DOTNET_CLI_TELEMETRY_PROFILE"_W);
+        GetEnvironmentValue(environment::azure_app_services_cli_telemetry_profile_value);
 
     if (cli_telemetry_profile_value == "AzureKudu"_W) {
       Info("Profiler disabled: ", app_pool_id_value,
