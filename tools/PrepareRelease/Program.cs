@@ -8,28 +8,22 @@ namespace PrepareRelease
         public const string Versions = "versions";
         public const string Integrations = "integrations";
         public const string Msi = "msi";
-        public const string AzureAppServices = "aas";
 
         public static void Main(string[] args)
         {
             if (JobShouldRun(Integrations, args))
             {
-                // GenerateIntegrationDefinitions.Run();
+                GenerateIntegrationDefinitions.Run();
             }
 
             if (JobShouldRun(Versions, args))
             {
-                // SetAllVersions.Run();
+                SetAllVersions.Run();
             }
 
             if (JobShouldRun(Msi, args))
             {
                 // SyncMsiContent.Run();
-            }
-
-            if (JobShouldRun(AzureAppServices, args))
-            {
-                SyncAzureAppServicesPackage.Run();
             }
         }
 

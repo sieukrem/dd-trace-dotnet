@@ -2,9 +2,10 @@
 <package>
   <metadata>
     <id>Datadog.Trace.AzureAppServices</id>
-    <version>1.10.12-prerelease</version>
+    <version>1.10.18-prerelease</version>
     <title>Beta .NET Tracer for Datadog APM</title>
     <authors>lucas.pimentel.datadog;colinhigginsdatadog;zachmontoyadd;bobuva</authors>
+    <!--<icon>packageIcon.png</icon>-->
     <license type="expression">Apache-2.0</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
