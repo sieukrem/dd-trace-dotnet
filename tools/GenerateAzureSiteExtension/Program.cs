@@ -4,7 +4,6 @@ namespace PrepareRelease
     {
         public static void Main(string[] args)
         {
-            // DependencyBuilder.Run();
             SyncAzureAppServicesPackage.Run();
         }
     }
