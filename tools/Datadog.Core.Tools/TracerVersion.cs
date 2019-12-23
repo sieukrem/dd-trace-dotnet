@@ -18,7 +18,7 @@ namespace Datadog.Core.Tools
         /// <summary>
         /// The patch portion of the current version.
         /// </summary>
-        public const int Patch = 19;
+        public const int Patch = 28;
 
         /// <summary>
         /// Whether the current release is a pre-release
