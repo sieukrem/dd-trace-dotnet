@@ -289,6 +289,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datadog.Trace.AzureAppServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateAzureSiteExtension", "tools\GenerateAzureSiteExtension\GenerateAzureSiteExtension.csproj", "{454B9EA7-9B9A-4CB8-B019-988579533BC1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datadog.Trace.FileProxy", "src\Datadog.Trace.FileProxy\Datadog.Trace.FileProxy.csproj", "{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -971,6 +973,18 @@ Global
 		{454B9EA7-9B9A-4CB8-B019-988579533BC1}.Release|x64.Build.0 = Release|Any CPU
 		{454B9EA7-9B9A-4CB8-B019-988579533BC1}.Release|x86.ActiveCfg = Release|Any CPU
 		{454B9EA7-9B9A-4CB8-B019-988579533BC1}.Release|x86.Build.0 = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|x64.Build.0 = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Debug|x86.Build.0 = Debug|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|x64.ActiveCfg = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|x64.Build.0 = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|x86.ActiveCfg = Release|Any CPU
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1040,6 +1054,7 @@ Global
 		{B34EDBC7-C5FB-409D-8472-BC7469D6F2BD} = {9E5F0022-0A50-40BF-AC6A-C3078585ECAB}
 		{BD818084-A89D-4FF4-9C8A-09A1491B6569} = {C1B5EA8C-C190-4EAE-871B-A7E95B5EC482}
 		{454B9EA7-9B9A-4CB8-B019-988579533BC1} = {5D8E1F81-B820-4736-B797-271B0FE787EE}
+		{B03DD6A3-5E5D-4CA6-9B62-7E4A49038F5B} = {9E5F0022-0A50-40BF-AC6A-C3078585ECAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {160A1D00-1F5B-40F8-A155-621B4459D78F}
