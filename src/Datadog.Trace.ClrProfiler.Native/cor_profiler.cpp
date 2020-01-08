@@ -182,15 +182,15 @@ CorProfiler::Initialize(IUnknown* cor_profiler_info_unknown) {
   is_attached_ = true;
   profiler = this;
 
-  // if (in_azure_app_services) {
-  //   // Start an instance of the trace agent for use in AAS
-  //   const auto azure_agent_home_value =
-  //       GetEnvironmentValue(environment::azure_agent_home);
-  //   auto trace_agent_start_file =
-  //       azure_agent_home_value + "run-trace-agent.cmd"_W;
-  //   // system("C:\\Github\\dd-trace-dotnet\\samples\\Samples.AspNetCoreMvc2\\run-trace-agent.bat");
-  //   // system("start D:\\home\\site\\wwwroot\\datadog\\agent\\run-trace-agent.bat");
-  // }
+   if (in_azure_app_services) {
+     //// Start an instance of the trace agent for use in AAS
+     //const auto azure_agent_home_value =
+     //    GetEnvironmentValue(environment::azure_agent_home);
+     //auto trace_agent_start_file =
+     //    azure_agent_home_value + "run-trace-agent.cmd"_W;
+     // system("C:\\Github\\dd-trace-dotnet\\samples\\Samples.AspNetCoreMvc2\\run-trace-agent.bat");
+     system("START \"D:\\home\\site\\wwwroot\\datadog\\trace-agent.exe\"");
+   }
 
   return S_OK;
 }
