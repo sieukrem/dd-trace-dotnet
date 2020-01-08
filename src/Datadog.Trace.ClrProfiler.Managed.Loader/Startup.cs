@@ -28,7 +28,7 @@ namespace Datadog.Trace.ClrProfiler.Managed.Loader
         {
             try
             {
-                Assembly.Load(new AssemblyName("Datadog.Trace.ClrProfiler.Managed, Version=1.10.32.0, Culture=neutral, PublicKeyToken=def86d061d0d2eeb"));
+                Assembly.Load(new AssemblyName("Datadog.Trace.ClrProfiler.Managed, Version=1.10.33.0, Culture=neutral, PublicKeyToken=def86d061d0d2eeb"));
                 return true;
             }
             catch
