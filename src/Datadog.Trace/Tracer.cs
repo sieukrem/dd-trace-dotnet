@@ -35,6 +35,7 @@ namespace Datadog.Trace
 
         static Tracer()
         {
+            StartTraceAgentWhenNecessary();
             // create the default global Tracer
             Instance = new Tracer();
         }
@@ -343,6 +344,40 @@ namespace Datadog.Trace
 
             var statsdUdp = new StatsdUDP(settings.AgentUri.DnsSafeHost, settings.DogStatsdPort, StatsdConfig.DefaultStatsdMaxUDPPacketSize);
             return new Statsd(statsdUdp, new RandomGenerator(), new StopWatchFactory(), prefix: string.Empty, constantTags);
+        }
+
+        private static void StartTraceAgentWhenNecessary()
+        {
+            var azureAppServicesValue = Environment.GetEnvironmentVariable("DD_AZURE_APP_SERVICES");
+
+            if (azureAppServicesValue == "1")
+            {
+                var path = Environment.GetEnvironmentVariable("DD_TRACE_AGENT_PATH");
+
+                if (!string.IsNullOrWhiteSpace(path))
+                {
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = path,
+                    };
+
+                    var datadogYamlPath = Environment.GetEnvironmentVariable("DD_DATADOG_YAML_PATH");
+
+                    if (!string.IsNullOrWhiteSpace(datadogYamlPath))
+                    {
+                        startInfo.Arguments = $"--config \"{datadogYamlPath}\"";
+                    }
+
+                    var process = Process.Start(startInfo);
+
+                    Thread.Sleep(150);
+
+                    if (process == null || process.HasExited)
+                    {
+                        Log.Error("Trace agent has failed to start.");
+                    }
+                }
+            }
         }
 
         private void InitializeLibLogScopeEventSubscriber(IScopeManager scopeManager)

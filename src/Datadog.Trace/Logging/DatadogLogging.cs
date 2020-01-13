@@ -74,7 +74,7 @@ namespace Datadog.Trace.Logging
                 }
 
                 // Ends in a dash because of the date postfix
-                var managedLogPath = Path.Combine(logDirectory, $"dotnet-tracer-{currentProcess.ProcessName}-.log");
+                var managedLogPath = Path.Combine(logDirectory, $"dotnet-tracer.log");
 
                 var loggerConfiguration =
                     new LoggerConfiguration()
@@ -82,10 +82,7 @@ namespace Datadog.Trace.Logging
                        .MinimumLevel.Is(MinimumLogEventLevel)
                        .WriteTo.File(
                             managedLogPath,
-                            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}{Properties}{NewLine}",
-                            rollingInterval: RollingInterval.Day,
-                            rollOnFileSizeLimit: true,
-                            fileSizeLimitBytes: MaxLogFileSize);
+                            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}{Properties}{NewLine}");
 
                 try
                 {
@@ -118,7 +115,7 @@ namespace Datadog.Trace.Logging
         public static ILogger GetLogger(Type classType)
         {
             // Tells us which types are loaded, when, and how often.
-            SharedLogger.Debug($"Logger retrieved for: {classType.AssemblyQualifiedName}");
+            SharedLogger.Information("Logger retrieved for: {0}", classType.AssemblyQualifiedName);
             return SharedLogger;
         }
 

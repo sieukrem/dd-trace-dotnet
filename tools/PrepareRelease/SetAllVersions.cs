@@ -73,19 +73,9 @@ namespace PrepareRelease
                 "deploy/AzureAppServices/Datadog.Trace.AzureAppServices.nuspec",
                 NuspecVersionReplace);
 
-            SynchronizeVersion(
-                "deploy/AzureAppServices/content/applicationHost.xdt",
-                text =>
-                {
-                    return FullVersionReplace(text, "_");
-                });
-
-            SynchronizeVersion(
-                "deploy/AzureAppServices/content/install.cmd",
-                text =>
-                {
-                    return FullVersionReplace(text, "_");
-                });
+            SynchronizeVersion("deploy/AzureAppServices/content/applicationHost.xdt", AzureAppServicesReplace);
+            SynchronizeVersion("deploy/AzureAppServices/content/install.cmd", AzureAppServicesReplace);
+            SynchronizeVersion("deploy/AzureAppServices/content/Agent/datadog.yaml", AzureAppServicesReplace);
 
             Console.WriteLine($"Completed synchronizing versions to {VersionString()}");
         }

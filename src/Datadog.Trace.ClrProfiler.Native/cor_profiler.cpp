@@ -182,16 +182,6 @@ CorProfiler::Initialize(IUnknown* cor_profiler_info_unknown) {
   is_attached_ = true;
   profiler = this;
 
-   if (in_azure_app_services) {
-     //// Start an instance of the trace agent for use in AAS
-     //const auto azure_agent_home_value =
-     //    GetEnvironmentValue(environment::azure_agent_home);
-     //auto trace_agent_start_file =
-     //    azure_agent_home_value + "run-trace-agent.cmd"_W;
-     // system("C:\\Github\\dd-trace-dotnet\\samples\\Samples.AspNetCoreMvc2\\run-trace-agent.bat");
-     system("START \"D:\\home\\site\\wwwroot\\datadog\\trace-agent.exe\"");
-   }
-
   return S_OK;
 }
 
@@ -289,7 +279,7 @@ HRESULT STDMETHODCALLTYPE CorProfiler::ModuleLoadFinished(ModuleID module_id,
 
   // keep this lock until we are done using the module,
   // to prevent it from unloading while in use
-  std::lock_guard<std::mutex> guard(module_id_to_info_map_lock_);
+  const std::lock_guard<std::mutex> guard(module_id_to_info_map_lock_);
 
   const auto module_info = GetModuleInfo(this->info_, module_id);
   if (!module_info.IsValid()) {
