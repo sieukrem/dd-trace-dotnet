@@ -131,12 +131,6 @@ namespace Datadog.Trace
         public Scope ActiveScope => _scopeManager.Active;
 
         /// <summary>
-        /// Gets a value indicating whether debugging mode is enabled.
-        /// </summary>
-        /// <value><c>true</c> is debugging is enabled, otherwise <c>false</c>.</value>
-        bool IDatadogTracer.IsDebugEnabled => Settings.DebugEnabled;
-
-        /// <summary>
         /// Gets the default service name for traces where a service name is not specified.
         /// </summary>
         public string DefaultServiceName { get; }
@@ -188,18 +182,29 @@ namespace Datadog.Trace
         }
 
         /// <summary>
-        /// Make a span active and return a scope that can be disposed to close the span
+        /// Make a span the active span and return its new scope.
         /// </summary>
-        /// <param name="span">The span to activate</param>
-        /// <param name="finishOnClose">If set to false, closing the returned scope will not close the enclosed span </param>
-        /// <returns>A Scope object wrapping this span</returns>
-        public Scope ActivateSpan(Span span, bool finishOnClose = true)
+        /// <param name="span">The span to activate.</param>
+        /// <returns>A Scope object wrapping this span.</returns>
+        public Scope ActivateSpan(Span span)
+        {
+            return ActivateSpan(span, finishOnClose: true);
+        }
+
+        /// <summary>
+        /// Make a span the active span and return its new scope.
+        /// </summary>
+        /// <param name="span">The span to activate.</param>
+        /// <param name="finishOnClose">Determines whether closing the returned scope will also finish the span.</param>
+        /// <returns>A Scope object wrapping this span.</returns>
+        public Scope ActivateSpan(Span span, bool finishOnClose)
         {
             return _scopeManager.Activate(span, finishOnClose);
         }
 
         /// <summary>
-        /// This is a shortcut for <see cref="StartSpan"/> and <see cref="ActivateSpan"/>, it creates a new span with the given parameters and makes it active.
+        /// This is a shortcut for <see cref="StartSpan(string, ISpanContext, string, DateTimeOffset?, bool)"/>
+        /// and <see cref="ActivateSpan"/>, it creates a new span with the given parameters and makes it active.
         /// </summary>
         /// <param name="operationName">The span's operation name</param>
         /// <param name="parent">The span's parent</param>
@@ -218,12 +223,33 @@ namespace Datadog.Trace
         /// Creates a new <see cref="Span"/> with the specified parameters.
         /// </summary>
         /// <param name="operationName">The span's operation name</param>
+        /// <returns>The newly created span</returns>
+        public Span StartSpan(string operationName)
+        {
+            return StartSpan(operationName, parent: null, serviceName: null, startTime: null, ignoreActiveScope: false);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Span"/> with the specified parameters.
+        /// </summary>
+        /// <param name="operationName">The span's operation name</param>
+        /// <param name="parent">The span's parent</param>
+        /// <returns>The newly created span</returns>
+        public Span StartSpan(string operationName, ISpanContext parent)
+        {
+            return StartSpan(operationName, parent: null, serviceName: null, startTime: null, ignoreActiveScope: false);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Span"/> with the specified parameters.
+        /// </summary>
+        /// <param name="operationName">The span's operation name</param>
         /// <param name="parent">The span's parent</param>
         /// <param name="serviceName">The span's service name</param>
         /// <param name="startTime">An explicit start time for that span</param>
         /// <param name="ignoreActiveScope">If set the span will not be a child of the currently active span</param>
         /// <returns>The newly created span</returns>
-        public Span StartSpan(string operationName, ISpanContext parent = null, string serviceName = null, DateTimeOffset? startTime = null, bool ignoreActiveScope = false)
+        public Span StartSpan(string operationName, ISpanContext parent, string serviceName, DateTimeOffset? startTime = null, bool ignoreActiveScope = false)
         {
             if (parent == null && !ignoreActiveScope)
             {
