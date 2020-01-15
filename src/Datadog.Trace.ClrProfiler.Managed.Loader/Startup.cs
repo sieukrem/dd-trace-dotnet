@@ -16,21 +16,29 @@ namespace Datadog.Trace.ClrProfiler.Managed.Loader
         {
             ManagedProfilerDirectory = ResolveManagedProfilerDirectory();
             AppDomain.CurrentDomain.AssemblyResolve += AssemblyResolve_ManagedProfilerDependencies;
-            TryLoadManagedAssembly();
+            var assembly = TryLoadManagedAssembly();
+
+            // call method Datadog.Trace.ClrProfiler.Instrumentation.Initialize()
+            try
+            {
+                var type = assembly?.GetType("Datadog.Trace.ClrProfiler.Instrumentation", throwOnError: false);
+                var method = type?.GetRuntimeMethod("Initialize", new Type[0]);
+                method?.Invoke(obj: null, parameters: null);
+            }
+            catch { }
         }
 
         internal static string ManagedProfilerDirectory { get; }
 
-        private static bool TryLoadManagedAssembly()
+        private static Assembly TryLoadManagedAssembly()
         {
             try
             {
-                Assembly.Load(new AssemblyName("Datadog.Trace.ClrProfiler.Managed, Version=1.11.1.0, Culture=neutral, PublicKeyToken=def86d061d0d2eeb"));
-                return true;
+                return Assembly.Load(new AssemblyName("Datadog.Trace.ClrProfiler.Managed, Version=1.11.0.0, Culture=neutral, PublicKeyToken=def86d061d0d2eeb"));
             }
             catch
             {
-                return false;
+                return null;
             }
         }
     }

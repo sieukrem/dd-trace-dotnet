@@ -32,5 +32,12 @@ namespace Datadog.Trace.ClrProfiler
                 }
             }
         }
+
+        /// <summary>
+        /// Initializes global instrumentation values.
+        /// </summary>
+        public static void Initialize()
+        {
+        }
     }
 }

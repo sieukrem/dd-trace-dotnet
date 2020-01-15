@@ -137,18 +137,18 @@ namespace Datadog.Trace.ClrProfiler.Integrations
         /// <param name="opCode">The OpCode used in the original method call.</param>
         /// <param name="mdToken">The mdToken of the original method call.</param>
         /// <param name="moduleVersionPtr">A pointer to the module version GUID.</param>
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = DiagnosticListenerExtensionsTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, DefaultHttpContextTypeName, RouteDataTypeName },
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = DiagnosticListenerExtensionsTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, HttpContextTypeName, RouteDataTypeName },
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = DiagnosticListenerExtensionsTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, DefaultHttpContextTypeName, RouteDataTypeName },
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = DiagnosticListenerExtensionsTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, HttpContextTypeName, RouteDataTypeName },
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
         public static void BeforeAction(
             object diagnosticListener,
             object controllerActionDescriptor,
@@ -242,18 +242,18 @@ namespace Datadog.Trace.ClrProfiler.Integrations
         /// <param name="opCode">The OpCode used in the original method call.</param>
         /// <param name="mdToken">The mdToken of the original method call.</param>
         /// <param name="moduleVersionPtr">A pointer to the module version GUID.</param>
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = DiagnosticListenerExtensionsTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, DefaultHttpContextTypeName, RouteDataTypeName },
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = DiagnosticListenerExtensionsTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, HttpContextTypeName, RouteDataTypeName },
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = DiagnosticListenerExtensionsTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, DefaultHttpContextTypeName, RouteDataTypeName },
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = DiagnosticListenerExtensionsTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, DiagnosticListenerTypeName, ControllerActionDescriptorTypeName, HttpContextTypeName, RouteDataTypeName },
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
         public static void AfterAction(
             object diagnosticListener,
             object controllerActionDescriptor,
@@ -335,13 +335,13 @@ namespace Datadog.Trace.ClrProfiler.Integrations
         /// <param name="opCode">The OpCode used in the original method call.</param>
         /// <param name="mdToken">The mdToken of the original method call.</param>
         /// <param name="moduleVersionPtr">A pointer to the module version GUID.</param>
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = ResourceInvokerTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, ResourceExecutedContextSealedTypeName },
-            TargetMethod = nameof(Rethrow),
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = ResourceInvokerTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, ResourceExecutedContextSealedTypeName },
+        //    TargetMethod = nameof(Rethrow),
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
         public static void Rethrow_ResourceExecutedContextSealed(object context, int opCode, int mdToken, long moduleVersionPtr)
         {
             Rethrow(context, opCode, mdToken, moduleVersionPtr, ResourceExecutedContextSealedTypeName);
@@ -354,13 +354,13 @@ namespace Datadog.Trace.ClrProfiler.Integrations
         /// <param name="opCode">The OpCode used in the original method call.</param>
         /// <param name="mdToken">The mdToken of the original method call.</param>
         /// <param name="moduleVersionPtr">A pointer to the module version GUID.</param>
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = ResourceInvokerTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, ExceptionContextSealedTypeName },
-            TargetMethod = nameof(Rethrow),
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = ResourceInvokerTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, ExceptionContextSealedTypeName },
+        //    TargetMethod = nameof(Rethrow),
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
         public static void Rethrow_ExceptionContextSealed(object context, int opCode, int mdToken, long moduleVersionPtr)
         {
             Rethrow(context, opCode, mdToken, moduleVersionPtr, ExceptionContextSealedTypeName);
@@ -373,13 +373,13 @@ namespace Datadog.Trace.ClrProfiler.Integrations
         /// <param name="opCode">The OpCode used in the original method call.</param>
         /// <param name="mdToken">The mdToken of the original method call.</param>
         /// <param name="moduleVersionPtr">A pointer to the module version GUID.</param>
-        [InterceptMethod(
-            TargetAssembly = AspnetMvcCore,
-            TargetType = ResourceInvokerTypeName,
-            TargetSignatureTypes = new[] { ClrNames.Void, ResultExecutedContextSealedTypeName },
-            TargetMethod = nameof(Rethrow),
-            TargetMinimumVersion = MinimumVersion,
-            TargetMaximumVersion = MaximumVersion)]
+        //[InterceptMethod(
+        //    TargetAssembly = AspnetMvcCore,
+        //    TargetType = ResourceInvokerTypeName,
+        //    TargetSignatureTypes = new[] { ClrNames.Void, ResultExecutedContextSealedTypeName },
+        //    TargetMethod = nameof(Rethrow),
+        //    TargetMinimumVersion = MinimumVersion,
+        //    TargetMaximumVersion = MaximumVersion)]
         public static void Rethrow_ResultExecutedContextSealed(object context, int opCode, int mdToken, long moduleVersionPtr)
         {
             Rethrow(context, opCode, mdToken, moduleVersionPtr, ResultExecutedContextSealedTypeName);
