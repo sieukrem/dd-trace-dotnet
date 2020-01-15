@@ -11,10 +11,10 @@
     <description>
       Beta Datadog .NET Tracer
     </description>
-    <tags>AzureSiteExtension Datadog .NET APM Tracing</tags>
+    <tags>AzureSiteExtension Datadog .NET APM Tracing Tracer</tags>
     <packageTypes>
       <packageType name="AzureSiteExtension" />
-    </packageTypes>
+    </packageTypes>  
   </metadata>
   <files>
     <file src="content\**\*.*" target="content" />

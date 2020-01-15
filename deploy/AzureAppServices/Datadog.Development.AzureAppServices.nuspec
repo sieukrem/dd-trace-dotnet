@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Datadog.Development.AzureAppServices</id>
-    <version>1.10.39-prerelease</version>
+    <version>1.10.40-prerelease</version>
     <title>Unstable .NET Datadog APM</title>
     <authors>Datadog</authors>
     <license type="expression">Apache-2.0</license>
@@ -10,6 +10,7 @@
     <description>
       Unstable Development Datadog .NET Tracer
     </description>
+    <tags>Datadog .NET APM Tracing Tracer</tags>
     <packageTypes>
       <packageType name="AzureSiteExtension" />
     </packageTypes>
